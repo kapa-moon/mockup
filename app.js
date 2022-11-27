@@ -18,30 +18,24 @@ const input = [
 ]
 
 const snippets = [
-    // type 1, 3 are "inclusion", type 2 is "skipping"
+    
     {name: 'GUU', type:'1', start: 0, end: 3, strength: 13, skipping: 0},
     {name: 'GCG', type:'2', start: 3, end: 6, strength: 24, skipping: 1},
     {name: 'GGCA', type:'3', start: 5, end: 9, strength: 37, skipping: 0},
     {name: 'CACC', type:'1', start: 9, end: 13, strength: 13, skipping: 0},
 ]
 
+// type 1, 3 are "inclusion", type 2 is "skipping"
 const skipping = ['2'];
 const inclusion = ['1', '3'];
 
-console.log(skipping.includes('2'));
-
-
+// Draw 
 const canva = d3.select('.canva');
 const diagram = canva.select('#diagram');
 const chain = canva.select('#chain');
 
-function drawChain(){
-    console.log('drawChain');
-}
-
 
 const chainRect = chain.selectAll('chain-rect');
-
 
 chainRect.data(input)
     .enter()
@@ -82,6 +76,8 @@ chainRect.data(snippets)
     });
 
 
+
+    // get the type  
 let snippet = [];
 let type = [];
 snippets.forEach((d, i) => {
@@ -90,14 +86,15 @@ snippets.forEach((d, i) => {
         snippet.push({type: d.type, strength: d.strength, skipping: d.skipping});
     }
 });
-console.log(snippet);
 
 
-let skippingHeight = 0;
-let inclusionHeight = 0;
-let drawn =[];
+
+
+// draw the diagram
 
 const rect = diagram.selectAll('d-rect');
+let skippingHeight = 0;
+let inclusionHeight = 0;
 
 rect.data(snippet)
     .enter()
@@ -132,6 +129,7 @@ rect.data(snippet)
     });
 
 
+// add text label
 const text = diagram.selectAll('d-text');
 let skippingTextY = 0;
 let inclusionTextY = 0;
@@ -157,6 +155,7 @@ text.data(snippet)
         return d.type;
     });
 
+// interaction that highlight a specific block on the chain
 document.getElementById('diagram').
     querySelectorAll('.d-rect, .d-text').
     forEach(function(d){
