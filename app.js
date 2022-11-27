@@ -15,7 +15,6 @@ const input = [
     {base: "C"},
     {base: "U"},
     {base: "A"},
-
 ]
 
 const snippets = [
@@ -83,6 +82,16 @@ chainRect.data(snippets)
     });
 
 
+let snippet = [];
+let type = [];
+snippets.forEach((d, i) => {
+    if(!type.includes(d.type)){
+        type.push(d.type);
+        snippet.push({type: d.type, strength: d.strength, skipping: d.skipping});
+    }
+});
+console.log(snippet);
+
 
 let skippingHeight = 0;
 let inclusionHeight = 0;
@@ -90,7 +99,7 @@ let drawn =[];
 
 const rect = diagram.selectAll('d-rect');
 
-rect.data(snippets)
+rect.data(snippet)
     .enter()
     .append('rect')
     .attr('class', 'd-rect')
@@ -127,7 +136,7 @@ const text = diagram.selectAll('d-text');
 let skippingTextY = 0;
 let inclusionTextY = 0;
 
-text.data(snippets)
+text.data(snippet)
     .enter()
     .append('text')
     .attr('class', 'd-text')
