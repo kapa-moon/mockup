@@ -14,7 +14,6 @@ body{
 #chain .chain-snippet-skipping{
     fill: none;
     stroke-width: 1px;
-    /* .attr('fill', '#132482') */
     fill-opacity: 0.2;
     stroke: none;
 }
@@ -25,9 +24,8 @@ body{
 }
 
 #chain .chain-snippet-skipping-hover{
-    fill: rgb(160, 62, 62);
+    fill: #ffb3b3;
     stroke-width: 1px;
-    /* .attr('fill', '#132482') */
     fill-opacity: 0.2;
     stroke: #c1575c;
 }
@@ -35,17 +33,15 @@ body{
 #chain .chain-snippet-inclusion{
     fill: none;
     stroke-width: 1px;
-    /* .attr('fill', '#132482') */
     fill-opacity: 0.2;
     stroke: none;
 }
 
 #chain .chain-snippet-inclusion-hover{
-    fill: rgb(28, 25, 74);
+    fill: #99ccff;
     stroke-width: 1px;
-    /* .attr('fill', '#132482') */
     fill-opacity: 0.2;
-    stroke: #201935;
+    stroke: #1c4976;
 }
 
 #chain{

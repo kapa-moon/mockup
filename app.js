@@ -104,9 +104,9 @@ rect.data(snippet)
     .attr('fill', (d)=>
     {
         if(d.skipping == 0){
-            return "#132482";
+            return "#99ccff";
         } else if(d.skipping==1){
-            return '#c1575c';
+            return '#ffb3b3';
         }
     })
     .attr('stroke', "white")
@@ -150,7 +150,7 @@ text.data(snippet)
             return 100 - skippingTextY + 10;
         }
     })
-    .attr('fill', 'white')
+    .attr('fill', 'black')
     .text((d) => {
         return d.type;
     });
